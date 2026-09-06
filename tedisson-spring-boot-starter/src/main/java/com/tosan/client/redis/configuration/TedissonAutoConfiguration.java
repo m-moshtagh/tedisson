@@ -272,6 +272,7 @@ public class TedissonAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(LettuceConnectionFactory.class)
+    @Conditional(OnLettuceEnabledCondition.class)
     public LettuceConnectionFactory lettuceConnectionFactory(RedisProperties properties) {
         LettuceClientConfiguration clientConfiguration = lettuceClientConfiguration(properties);
         // Cluster

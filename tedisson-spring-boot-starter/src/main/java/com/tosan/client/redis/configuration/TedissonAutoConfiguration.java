@@ -263,6 +263,7 @@ public class TedissonAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(LettuceConnectionFactory.class)
+    @Conditional(OnLettuceEnabledCondition.class)
     public LettuceConnectionFactory lettuceConnectionFactory(
             DataRedisProperties properties) {
 
